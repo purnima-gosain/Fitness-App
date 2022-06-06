@@ -45,140 +45,50 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(Icons.notifications_outlined),
+            icon: const Icon(Icons.notifications_none),
             color: Colors.black,
           )
         ],
       ),
       body: SingleChildScrollView(
-          child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          SBC.mH,
-          Text(
-            "Today",
-            style: Theme.of(context)
-                .textTheme
-                .labelLarge!
-                .copyWith(color: primaryColor, fontWeight: FontWeight.w700),
-          ),
-          SBC.mH,
-          Text(
-            "Mon 26 Apr",
-            style: Theme.of(context)
-                .textTheme
-                .headline5!
-                .copyWith(fontWeight: FontWeight.w700),
-          ),
-          SBC.xxLH,
-          dropDown(context),
-          const _PercentIndicator(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                    color: const Color(0xFFAEACFA),
-                    borderRadius: BorderRadius.circular(20)),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 10.0, vertical: 15),
-                  child: Column(
-                    children: [
-                      Text(
-                        "Training time",
-                        style: Theme.of(context)
-                            .textTheme
-                            .caption!
-                            .copyWith(color: scaffoldBgColor),
-                      ),
-                      SBC.lH,
-                      RichText(
-                          text: TextSpan(
-                              text: "45 ",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline6!
-                                  .copyWith(
-                                      fontWeight: FontWeight.w600,
-                                      color: scaffoldBgColor),
-                              children: [
-                            TextSpan(
-                              text: 'min',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .bodyLarge!
-                                  .copyWith(
-                                      fontWeight: FontWeight.w600,
-                                      color: scaffoldBgColor),
-                            )
-                          ])),
-                      // LinearPercentIndicator()
-                      LinearPercentIndicator(
-                        width: 100,
-                        lineHeight: 8.0,
-                        percent: 0.4,
-                        backgroundColor: scaffoldBgColor,
-                        progressColor: const Color(0xFF68DBFF),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              Container(
-                decoration: BoxDecoration(
-                    color: Color(0xFF9AD8EF),
-                    borderRadius: BorderRadius.circular(20)),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 10.0, vertical: 15),
-                  child: Column(
-                    children: [
-                      Text(
-                        "Steps",
-                        style: Theme.of(context)
-                            .textTheme
-                            .caption!
-                            .copyWith(color: scaffoldBgColor),
-                      ),
-                      SBC.lH,
-                      RichText(
-                          text: TextSpan(
-                              text: "8 ",
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline6!
-                                  .copyWith(
-                                      fontWeight: FontWeight.w600,
-                                      color: scaffoldBgColor),
-                              children: [
-                            TextSpan(
-                              text: '670',
-                              style: Theme.of(context)
-                                  .textTheme
-                                  .headline6!
-                                  .copyWith(
-                                      fontWeight: FontWeight.w600,
-                                      color: scaffoldBgColor),
-                            )
-                          ])),
-                      // LinearPercentIndicator()
-                      LinearPercentIndicator(
-                        width: 100,
-                        lineHeight: 8.0,
-                        percent: 0.7,
-                        backgroundColor: scaffoldBgColor,
-                        progressColor: const Color(0xFFFD7EBB),
-                      )
-                    ],
-                  ),
-                ),
-              )
-            ],
-          )
-        ],
+          child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: mainColumn(context),
       )),
+    );
+  }
+
+  Column mainColumn(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        SBC.xxLH,
+        Text(
+          "Today",
+          style: Theme.of(context)
+              .textTheme
+              .labelLarge!
+              .copyWith(color: primaryColor, fontWeight: FontWeight.w700),
+        ),
+        SBC.xxLH,
+        Text(
+          "Mon 26 Apr",
+          style: Theme.of(context)
+              .textTheme
+              .headline5!
+              .copyWith(fontWeight: FontWeight.w700),
+        ),
+        SBC.xxLH,
+        SBC.xxLH,
+        dropDown(context),
+        SBC.xxLH,
+        SBC.xxLH,
+        const _PercentIndicator(),
+        SBC.xxLH,
+        SBC.xLH,
+        const _Linearbar()
+      ],
     );
   }
 
@@ -192,7 +102,7 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
               // border: Border.all(color: Colors.black),
               borderRadius: BorderRadius.circular(20)),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            padding: const EdgeInsets.symmetric(horizontal: 18.0),
             child: DropdownButton(
                 underline: const SizedBox(),
                 borderRadius: BorderRadius.circular(20),
@@ -223,7 +133,7 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
               // border: Border.all(color: Colors.black),
               borderRadius: BorderRadius.circular(20)),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            padding: const EdgeInsets.symmetric(horizontal: 18.0),
             child: DropdownButton(
                 underline: const SizedBox(),
                 borderRadius: BorderRadius.circular(20),
@@ -253,6 +163,108 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
   }
 }
 
+class _Linearbar extends StatelessWidget {
+  const _Linearbar({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Container(
+          decoration: BoxDecoration(
+              color: const Color(0xFFAEACFA),
+              borderRadius: BorderRadius.circular(28)),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
+            child: Column(
+              children: [
+                Text(
+                  "Training time",
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText1!
+                      .copyWith(color: scaffoldBgColor),
+                ),
+                SBC.xxLH,
+                RichText(
+                    text: TextSpan(
+                        text: "45 ",
+                        style: Theme.of(context).textTheme.headline5!.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: scaffoldBgColor),
+                        children: [
+                      TextSpan(
+                        text: 'min',
+                        style: Theme.of(context).textTheme.headline6!.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: scaffoldBgColor),
+                      )
+                    ])),
+                SBC.lH,
+                LinearPercentIndicator(
+                  width: 120,
+                  lineHeight: 9.0,
+                  percent: 0.4,
+                  backgroundColor: scaffoldBgColor,
+                  progressColor: const Color(0xFF68DBFF),
+                ),
+                SBC.lH,
+              ],
+            ),
+          ),
+        ),
+        Container(
+          decoration: BoxDecoration(
+              color: const Color(0xFF9AD8EF),
+              borderRadius: BorderRadius.circular(28)),
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
+            child: Column(
+              children: [
+                Text(
+                  "Steps",
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyText1!
+                      .copyWith(color: scaffoldBgColor),
+                ),
+                SBC.xxLH,
+                RichText(
+                    text: TextSpan(
+                        text: "8 ",
+                        style: Theme.of(context).textTheme.headline5!.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: scaffoldBgColor),
+                        children: [
+                      TextSpan(
+                        text: '670',
+                        style: Theme.of(context).textTheme.headline5!.copyWith(
+                            fontWeight: FontWeight.w600,
+                            color: scaffoldBgColor),
+                      )
+                    ])),
+                SBC.lH,
+                // LinearPercentIndicator()
+                LinearPercentIndicator(
+                  width: 120,
+                  lineHeight: 9.0,
+                  percent: 0.7,
+                  backgroundColor: scaffoldBgColor,
+                  progressColor: const Color(0xFFFD7EBB),
+                ),
+                SBC.lH,
+              ],
+            ),
+          ),
+        )
+      ],
+    );
+  }
+}
+
 class _PercentIndicator extends StatelessWidget {
   const _PercentIndicator({
     Key? key,
@@ -263,8 +275,8 @@ class _PercentIndicator extends StatelessWidget {
     return Center(
         child: CircularPercentIndicator(
       backgroundColor: const Color.fromARGB(255, 237, 237, 237),
-      radius: 220.0,
-      lineWidth: 13.0,
+      radius: 240.0,
+      lineWidth: 14.0,
       percent: 0.75,
       animation: true,
       circularStrokeCap: CircularStrokeCap.round,

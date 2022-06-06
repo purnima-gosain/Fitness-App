@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:health_app/pages/analytics/analytics.dart';
+import 'package:health_app/routes/router.gr.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+  MyApp({Key? key}) : super(key: key);
+  final _appRouter = AppRouter();
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-          // textTheme: GoogleFonts.montserratTextTheme(),
-          ),
-      home: const AnalyticsPage(),
-    );
+    return MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        routeInformationParser: _appRouter.defaultRouteParser(),
+        routerDelegate: _appRouter.delegate());
   }
 }
