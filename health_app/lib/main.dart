@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:health_app/pages/analytics/analytics.dart';
-import 'package:health_app/resources/colors.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(),
+      theme: ThemeData(
+          // textTheme: GoogleFonts.montserratTextTheme(),
+          ),
       home: const AnalyticsPage(),
     );
   }
