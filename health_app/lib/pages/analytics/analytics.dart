@@ -80,13 +80,12 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
               .copyWith(fontWeight: FontWeight.w700),
         ),
         SBC.xxLH,
-        SBC.xxLH,
+        // SBC.xxLH,
         dropDown(context),
         SBC.xxLH,
-        SBC.xxLH,
+        // SBC.xxLH,
         const _PercentIndicator(),
         SBC.xxLH,
-        SBC.xLH,
         const _Linearbar()
       ],
     );
