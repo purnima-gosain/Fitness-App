@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:health_app/resources/colors.dart';
-import 'package:health_app/resources/size_constants.dart';
+import 'package:health_app/core/presentation/resources/colors.dart';
+import 'package:health_app/core/presentation/resources/size_constants.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 // import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -63,7 +63,6 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        SBC.xxLH,
         Text(
           "Today",
           style: Theme.of(context)
@@ -71,13 +70,13 @@ class _AnalyticsPageState extends State<AnalyticsPage> {
               .labelLarge!
               .copyWith(color: primaryColor, fontWeight: FontWeight.w700),
         ),
-        SBC.xxLH,
+        SBC.lH,
         Text(
           "Mon 26 Apr",
           style: Theme.of(context)
               .textTheme
               .headline5!
-              .copyWith(fontWeight: FontWeight.w700),
+              .copyWith(fontWeight: FontWeight.w700, color: Colors.black),
         ),
         SBC.xxLH,
         // SBC.xxLH,
@@ -177,7 +176,7 @@ class _Linearbar extends StatelessWidget {
               color: const Color(0xFFAEACFA),
               borderRadius: BorderRadius.circular(28)),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15),
             child: Column(
               children: [
                 Text(
@@ -215,12 +214,13 @@ class _Linearbar extends StatelessWidget {
             ),
           ),
         ),
+        SBC.xxLH,
         Container(
           decoration: BoxDecoration(
               color: const Color(0xFF9AD8EF),
               borderRadius: BorderRadius.circular(28)),
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15),
             child: Column(
               children: [
                 Text(

@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import 'package:health_app/resources/colors.dart';
+import 'package:health_app/core/presentation/resources/colors.dart';
 import 'package:health_app/routes/router.gr.dart';
 
 class LandingPage extends StatelessWidget {

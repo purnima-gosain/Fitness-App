@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'colors.dart';
 
 ThemeData appTheme() {
-
   final textTheme = TextTheme(
     headline1: TextStyle(
       fontSize: 30,
@@ -13,7 +12,8 @@ ThemeData appTheme() {
       fontSize: 22,
       fontWeight: FontWeight.bold,
       color: primaryColorDark,
-    ),  headline5: TextStyle(
+    ),
+    headline5: TextStyle(
       fontSize: 20,
       fontWeight: FontWeight.bold,
       color: primaryColorDark,
@@ -21,19 +21,16 @@ ThemeData appTheme() {
     headline6: const TextStyle(
       fontSize: 18,
     ),
-
     bodyText1: const TextStyle(
-      fontSize: 15,
-      height: 1.5,
-      fontWeight: FontWeight.normal
-    ),
+        fontSize: 15, height: 1.5, fontWeight: FontWeight.normal),
     bodyText2: const TextStyle(
       fontSize: 14,
     ),
   );
 
   final inputDecorationTheme = InputDecorationTheme(
-    contentPadding: const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
+    contentPadding:
+        const EdgeInsets.symmetric(vertical: 15.0, horizontal: 10.0),
     // fillColor: Color(0XFFF0F0F0),
     filled: true,
     errorBorder: OutlineInputBorder(
@@ -96,13 +93,26 @@ ThemeData appTheme() {
     // )),
     inputDecorationTheme: inputDecorationTheme,
     buttonTheme: buttonTheme,
-          colorScheme: ColorScheme(
-
-        primary: primaryColor, onPrimary: Colors.white, background: Colors.white, error: Colors.red, onSecondary: Colors.white, onError: Colors.red, surface: Colors.white, secondary: secondaryColor, onSurface: Colors.black, onBackground: Colors.white, brightness: Brightness.light
-            ,),
+    colorScheme: ColorScheme(
+      primary: primaryColor,
+      onPrimary: Colors.white,
+      background: Colors.white,
+      error: Colors.red,
+      onSecondary: Colors.white,
+      onError: Colors.red,
+      surface: Colors.white,
+      secondary: secondaryColor,
+      onSurface: Colors.black,
+      onBackground: Colors.white,
+      brightness: Brightness.light,
+    ),
     iconTheme: IconThemeData(color: primaryColor),
-    appBarTheme: AppBarTheme(color: primaryColor,titleTextStyle: textTheme.bodyText1, iconTheme: const IconThemeData(color: Colors.white,size: 20), actionsIconTheme:  const IconThemeData(color: Colors.black,opacity: 0.7, size: 28)),
-
+    appBarTheme: AppBarTheme(
+        color: primaryColor,
+        titleTextStyle: textTheme.bodyText1,
+        iconTheme: const IconThemeData(color: Colors.white, size: 20),
+        actionsIconTheme:
+            const IconThemeData(color: Colors.black, opacity: 0.7, size: 28)),
   );
 }
 
